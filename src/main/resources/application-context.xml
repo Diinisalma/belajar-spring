@@ -6,12 +6,19 @@
     xmlns:p="http://www.springframework.org/schema/p"
     xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
         http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context-4.3.xsd">
-        <bean id="author" class="com.github.diinisalma.spring.Author">
+        <bean id="author1" class="com.github.diinisalma.spring.Author">
             <property name="name" value="John Doe" />
         </bean>
-        <bean id="book" class="com.github.diinisalma.spring.Book">
+        <bean id="author2" class="com.github.diinisalma.spring.Author">
+            <property name="name" value="O'Reilly" />
+        </bean>
+        <bean id="book1" class="com.github.diinisalma.spring.Book">
             <property name="title" value="Spring in Action" />
-            <property name="author" ref="author" />
+            <property name="author" ref="author1" />
+        </bean>
+        <bean id="book2" class="com.github.diinisalma.spring.Book">
+            <property name="title" value="Quarkus in Action" />
+            <property name="author" ref="author2" />
         </bean>
         <bean id="mailSession" class="jakarta.mail.Session" factory-method="getInstance">
             <constructor-arg>
