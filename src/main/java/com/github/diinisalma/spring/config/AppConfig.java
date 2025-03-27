@@ -4,17 +4,18 @@ import java.util.Properties;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.github.diinisalma.spring.Author;
 import com.github.diinisalma.spring.Book;
-import com.github.diinisalma.spring.EmailService;
 
 import jakarta.mail.Authenticator;
 import jakarta.mail.PasswordAuthentication;
 import jakarta.mail.Session;
 
 @Configuration
+@ComponentScan(basePackages = { "com.github.diinisalma.spring" })
 public class AppConfig {
 
     @Bean
@@ -63,11 +64,6 @@ public class AppConfig {
     @Bean
     public PasswordAuthentication passwordAuthentication() {
         return new PasswordAuthentication("13b27cfe71dbf5", "7fbcb73ad555ab");
-    }
-
-    @Bean
-    public EmailService emailService(Session mailSession) {
-        return new EmailService(mailSession);
     }
 
 }
